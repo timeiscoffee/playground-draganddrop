@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.css" />
+</head>
+<body>
+
+    <template id="region-wrapper">
+        <div class="region-wrapper">
+            <slot></slot>
+        </div>
+    </template>
+
+    <template id="component-wrapper">
+        <div class="component-wrapper">
+            <slot></slot>
+        </div>
+    </template>
+
+    <template id="app-wrapper">
+        <div class="app-wrapper">
+            <slot></slot>
+        </div>
+    </template>
+
+    <template id="app-layer1">
+        <div class="app-layer1">
+            <app-layer2></app-layer2>
+        </div>
+    </template>
+
+    <template id="app-layer2">
+        <div class="app-layer2">
+            <app-layer3></app-layer3>
+        </div>
+    </template>
+
+    <template id="app-layer3">
+        <div class="app-layer3">
+            <span class="target">Goodbye World</span>
+        </div>
+    </template>
+
+    <h1>Test for shadowDOM dragula support</h1>
+
+    <div>
+        <region-wrapper>
+            <component-wrapper><div>item1</div></component-wrapper>
+            <component-wrapper><div>item2</div></component-wrapper>
+            <component-wrapper><div>item3</div></component-wrapper>
+        </region-wrapper>
+        <region-wrapper>
+            <component-wrapper><div>item4</div></component-wrapper>
+            <component-wrapper><div>item5</div></component-wrapper>
+            <component-wrapper><div>item6</div></component-wrapper>
+        </region-wrapper>
+    </div>
+
+    <h1>Test for shadowDOM querySelectorAllShadowRoots</h1>
+
+    <app-layer1></app-layer1>
+    
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/dragula/3.7.2/dragula.js"></script> -->
+
+    <script src="dragula/dragula.js"></script>
+
+    <script src="home.js"></script>
+</body>
+</html>
